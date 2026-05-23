@@ -4,6 +4,7 @@ import math
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 # -------------------------------------------------
 # 0. 페이지 설정
@@ -49,7 +50,7 @@ ny = 125
 
 
 def get_base_date_time():
-    now = datetime.now()
+    now = datetime.now(ZoneInfo("Asia/Seoul")) - timedelta(minutes=10)
 
     # 기상청 단기예보 발표시각
     base_times = ["0200", "0500", "0800", "1100", "1400", "1700", "2000", "2300"]

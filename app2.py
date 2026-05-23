@@ -252,8 +252,7 @@ if "surface_df" not in st.session_state:
 if "Tdp" not in st.session_state:
     st.session_state.Tdp = None
 
-if "fetched_at" not in st.session_state:
-    st.session_state.fetched_at = None
+
 
 
 # -------------------------------------------------
@@ -325,7 +324,6 @@ with top_right:
                 st.session_state.tmp_5h = tmp_5h
                 st.session_state.base_date = base_date
                 st.session_state.base_time = base_time
-                st.session_state.fetched_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
                 st.success("기상청 외기온도 5시간 자료를 가져왔습니다.")
                 st.write(f"API 응답 코드: {result_code}")
@@ -338,7 +336,7 @@ with top_right:
         if st.session_state.outdoor_temps is not None:
             st.write(f"조회 기준일: {st.session_state.base_date}")
             st.write(f"조회 기준시각: {st.session_state.base_time}")
-            st.write(f"예보자료 가져온 시각: {st.session_state.fetched_at}")
+
 
             st.dataframe(
                 pd.DataFrame(st.session_state.tmp_5h),
